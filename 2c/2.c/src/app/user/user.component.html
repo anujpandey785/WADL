@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+         <div class="row">
+            <div class="col s5">
+                <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+                    <input type="hidden" name="_id" #_id="ngModel"
+                    [(ngModel)]="userService.selectedUser._id">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="name" #name="ngModel" 
+                            [(ngModel)]="userService.selectedUser.name">
+                            <label>Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" name="password" #name="ngModel" 
+                            [(ngModel)]="userService.selectedUser.password">
+                            <label>Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="number" name="number" #name="ngModel" 
+                            [(ngModel)]="userService.selectedUser.number">
+                            <label>Number</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <button class="btn btn-custom right" type="button" (click)="resetForm(userForm)">Reset</button>
+                          <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid">Submit</button>
+                        </div>
+                      </div>
+                </form>
+            </div>
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Number</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let emp of userService.users">
+                      <td>{{emp.name}}</td>
+                      <td>{{emp.password}}</td>
+                      <td>{{emp.number}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(emp)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(emp._id,userForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>

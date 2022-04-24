@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<body>
+    <!---->
+    <!--print users from localstorage-->
+</div>
+
+
+<!--<p>Registered users are :</p>-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+    </thead>
+    <tbody>
+        <script>
+            var users = localStorage.getItem('users');
+            users = JSON.parse(users);
+            if (users) {
+                users.forEach(function(user) {
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    td1.innerHTML = user.name;
+                    td2.innerHTML = user.email;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    document.querySelector('tbody').appendChild(tr);
+                });
+            }
+        </script>
+
+
+    </tbody>
+
+
+<!--create card to display emails-->
+
+</body>
+</html>
+
+
+<!-- Think about the last time you ordered a fast-delivery item (grocery / food). If you could ask the delivery executive three questions to understand their problems and desires, what would you ask them?-->
+
+

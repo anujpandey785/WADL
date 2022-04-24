@@ -1,0 +1,28 @@
+<!-- include css -->
+<link rel="stylesheet" href="WAD_Assignments-master\Assignment-3\3.a\views\styles.css">
+<main role="main" class="container" >
+    <h1 style="display: flex; align-items: center; justify-content: center;" class="mt-5">My Subscriber Page</h1>
+    <br>
+    <h3 style="display: flex; align-items: center; justify-content: center;">Subscriber Details</h3>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% mySubscribers.forEach(subscriber=> { %>
+                <tr>
+                    <td>
+                        <%= subscriber.name %>
+                    </td>
+                    <td>
+                        <%= subscriber.email %>
+                    </td>
+                </tr>
+            <% }); %>
+    </table>
+    </table>
+</main>

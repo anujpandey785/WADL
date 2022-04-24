@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--import bootstrap-->
+
+ 
+</head>
+<body>
+  <!--Write a JavaScript Program to get the user registration data and push to array/local storage with AJAX POST method and data list in new page-->
+
+  
+  <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="form.css">
+
+
+<!--import jquery-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<!--ccreate signup form-->
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-5">
+   <div class="card">
+     <h2 class="card-title text-center">Register</h2>
+      <div class="card-body py-md-4">
+       <form _lpchecked="1">
+          <div class="form-group">
+             <input type="text" class="form-control" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+             <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
+                            
+                          
+   <div class="form-group">
+     <input type="password" class="form-control" id="password" placeholder="Password">
+   </div>
+   <div class="form-group">
+      <input type="password" class="form-control" id="confirm-password" placeholder="confirm-password">
+   </div>
+   <div class="d-flex flex-row align-items-center justify-content-between">
+      <a href="#">Login</a>
+<button id="sbmt" class="btn btn-primary">Create Account</button>
+          </div>
+       </form>
+     </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<script>
+  //push form data to array/local storage
+
+    $('#sbmt').click(function(){
+      var name = $('#name').val();
+      var email = $('#email').val();
+      var password = $('#password').val();
+      var confirmPassword = $('#confirm-password').val();
+      var users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push({
+        name: name,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword
+      });
+      localStorage.setItem('users', JSON.stringify(users));
+      alert('User created successfully');
+      
+
+      //with AJAX POST method and data list in new page
+      $.ajax({
+        url: 'http://localhost/asiignment_0_/form.html',
+        type: 'POST',
+        data: {
+          name: name,
+          email: email,
+          password: password,
+          confirmPassword: confirmPassword
+        },
+        success: function(data){
+          console.log(data);
+          
+          window.location.href = 'http://localhost/asiignment_0_/result.html',true;
+        }
+      });
+    });
+
+</script>
+</body>
+</html>
