@@ -1,0 +1,74 @@
+
+
+<!--Write a JavaScript Program to get the user registration data and push to array/local storage with AJAX POST method and data list in new page
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<!--import jquery-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+
+
+<body>
+
+    <form method="POST" id="myform">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="submit" value="Submit" id="btnSubmit"/>
+    </form>
+
+    <span id="output"></span>
+
+</body>
+
+<script>
+    
+$(document).ready(function () {
+ 
+ $("#btnSubmit").click(function (event) {
+
+     //stop submit the form, we will post it manually.
+     event.preventDefault();
+
+     var email = $("#exampleInputEmail1").val();
+        var password = $("#exampleInputPassword1").val();
+        var data = {
+            email: email,
+            password: password
+        };
+        $.ajax({
+            type: "POST",
+            encoding: "UTF-8",
+            url: "https://localhost/asiignment_0_/upload.php",
+            data: data,
+            success: function (data) {
+                $("#output").html(data);
+            }
+        });
+    });
+});
+
+            
+
+
+</script>
+</html>
+
+
+
+
+
+
